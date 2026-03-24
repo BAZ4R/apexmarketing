@@ -1,0 +1,11 @@
+# ══════════════════════════════════════════════
+# ROBOTS.TXT — Google crawler-т зааврыг өгдөг файл
+# apexmarketing.mn-ийг өөрийн домэйнаар солино уу!
+# ══════════════════════════════════════════════
+
+# Бүх crawler-т зөвшөөрнө
+User-agent: *
+Allow: /
+
+# Sitemap хаяг
+Sitemap: https://apexmarketing.mn/sitemap.xml
