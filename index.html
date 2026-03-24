@@ -19,96 +19,75 @@
 <meta name="twitter:title" content="APEX Marketing — Монголын Тэргүүлэх Маркетингийн Агентлаг">
 <meta name="twitter:description" content="Стратеги, бүтээлч, дижитал — бид таны бизнесийг дээш өргөнө.">
 <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "MarketingAgency",
-  "name": "APEX Marketing",
-  "description": "Монголын тэргүүлэх маркетингийн агентлаг.",
-  "url": "https://apexmarketing.mn",
-  "telephone": "+97677110055",
-  "email": "hello@apexmarketing.mn",
-  "foundingDate": "2016",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "Нарны зам 9",
-    "addressLocality": "Улаанбаатар",
-    "addressCountry": "MN"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "reviewCount": "87"
-  }
-}
+{"@context":"https://schema.org","@type":"MarketingAgency","name":"APEX Marketing","description":"Монголын тэргүүлэх маркетингийн агентлаг.","url":"https://apexmarketing.mn","telephone":"+97677110055","email":"hello@apexmarketing.mn","foundingDate":"2016","address":{"@type":"PostalAddress","streetAddress":"Нарны зам 9","addressLocality":"Улаанбаатар","addressCountry":"MN"},"aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"87"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23080808'/><text y='.9em' font-size='80' x='10' fill='%23E8FF47' font-family='serif' font-weight='bold'>A</text></svg>">
 <style>
-:root{--bg:#080808;--surface:#111111;--surface2:#1a1a1a;--accent:#E8FF47;--accent2:#FF4747;--text:#F0EDE6;--muted:#6B6B6B;--border:#222222;--edit-highlight:rgba(232,255,71,0.12);--edit-border:#E8FF47}
+:root{--bg:#080808;--surface:#111111;--surface2:#1a1a1a;--accent:#E8FF47;--text:#F0EDE6;--muted:#6B6B6B;--border:#222222;--edit-highlight:rgba(232,255,71,0.12);--edit-border:#E8FF47}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;cursor:none}
-.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .3s,height .3s,background .3s;mix-blend-mode:difference}
+.cursor{width:12px;height:12px;background:var(--accent);border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:transform .1s,width .3s,height .3s;mix-blend-mode:difference}
 .cursor-ring{width:40px;height:40px;border:1px solid rgba(232,255,71,.5);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:all .15s ease}
 .cursor.hover{width:24px;height:24px}
 .edit-bar{position:fixed;top:0;left:0;right:0;height:48px;background:var(--accent);display:flex;align-items:center;justify-content:center;gap:20px;z-index:1000;transform:translateY(-100%);transition:transform .4s cubic-bezier(.16,1,.3,1)}
 .edit-bar.active{transform:translateY(0)}
-.edit-bar span{font-family:'DM Sans',sans-serif;font-size:13px;font-weight:500;color:#000;letter-spacing:.05em}
-.edit-bar button{background:#000;color:var(--accent);border:none;padding:6px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;letter-spacing:.08em;cursor:pointer;border-radius:2px;transition:opacity .2s}
+.edit-bar span{font-size:13px;font-weight:500;color:#000;letter-spacing:.05em}
+.edit-bar button{background:#000;color:var(--accent);border:none;padding:6px 16px;font-family:'DM Sans',sans-serif;font-size:12px;font-weight:500;cursor:pointer;border-radius:2px;transition:opacity .2s}
 .edit-bar button:hover{opacity:.7}
-body.edit-mode [data-editable]{outline:1px dashed var(--edit-border);background:var(--edit-highlight);border-radius:3px;cursor:text;transition:all .2s;min-width:40px;display:inline-block}
+body.edit-mode [data-editable]{outline:1px dashed var(--edit-border);background:var(--edit-highlight);border-radius:3px;cursor:text;min-width:40px;display:inline-block}
 body.edit-mode [data-editable]:hover,body.edit-mode [data-editable]:focus{outline:2px solid var(--edit-border);background:rgba(232,255,71,.2)}
-body.edit-mode [data-editable]:focus{outline-style:solid}
 nav{position:fixed;top:0;left:0;right:0;z-index:900;display:flex;align-items:center;justify-content:space-between;padding:24px 60px;transition:top .4s}
 body.edit-mode nav{top:48px}
 nav::before{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(8,8,8,.95),transparent);pointer-events:none}
-.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);text-decoration:none;position:relative}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:28px;letter-spacing:.12em;color:var(--text);text-decoration:none}
 .nav-logo span{color:var(--accent)}
-.nav-links{display:flex;gap:40px;list-style:none;position:relative}
+.nav-links{display:flex;gap:40px;list-style:none}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:.1em;text-transform:uppercase;transition:color .3s;font-weight:400}
 .nav-links a:hover{color:var(--text)}
 .nav-cta{background:var(--accent);color:#000!important;padding:10px 24px;font-weight:500!important;border-radius:2px}
-.lang-toggle{display:flex;gap:8px;position:relative}
+.lang-toggle{display:flex;gap:8px}
 .lang-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 12px;font-size:12px;font-family:'DM Sans',sans-serif;letter-spacing:.1em;cursor:pointer;transition:all .2s;border-radius:2px}
 .lang-btn.active{border-color:var(--accent);color:var(--accent)}
 .edit-toggle-btn{background:none;border:1px solid var(--border);color:var(--muted);padding:6px 14px;font-size:11px;font-family:'DM Sans',sans-serif;letter-spacing:.12em;text-transform:uppercase;cursor:pointer;transition:all .3s;border-radius:2px}
-.edit-toggle-btn:hover,.edit-toggle-btn.active{border-color:var(--accent);color:var(--accent);background:rgba(232,255,71,.05)}
+.edit-toggle-btn:hover,.edit-toggle-btn.active{border-color:var(--accent);color:var(--accent)}
 .hero{min-height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 60px 80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 80% 50%,rgba(232,255,71,.06) 0%,transparent 70%),radial-gradient(ellipse 40% 60% at 20% 80%,rgba(255,71,71,.04) 0%,transparent 70%)}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 80%)}
-.hero-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(180px,22vw,320px);line-height:.85;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.06);position:absolute;right:-20px;top:50%;transform:translateY(-50%);pointer-events:none;user-select:none;letter-spacing:-.02em}
+.hero-number{font-family:'Bebas Neue',sans-serif;font-size:clamp(180px,22vw,320px);line-height:.85;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.06);position:absolute;right:-20px;top:50%;transform:translateY(-50%);pointer-events:none;user-select:none}
 .hero-label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:28px;opacity:0;animation:fadeUp .8s .2s forwards;font-weight:500}
-.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,140px);line-height:.9;letter-spacing:-.01em;max-width:900px;opacity:0;animation:fadeUp .8s .4s forwards}
+.hero-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(64px,10vw,140px);line-height:.9;max-width:900px;opacity:0;animation:fadeUp .8s .4s forwards}
 .hero-title em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--accent)}
-.hero-sub{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7;margin-top:32px;opacity:0;animation:fadeUp .8s .6s forwards;font-weight:300}
+.hero-sub{font-size:16px;color:var(--muted);max-width:480px;line-height:1.7;margin-top:32px;opacity:0;animation:fadeUp .8s .6s forwards}
 .hero-actions{display:flex;gap:16px;margin-top:48px;opacity:0;animation:fadeUp .8s .8s forwards;align-items:center}
 .btn-primary{background:var(--accent);color:#000;border:none;padding:16px 40px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;transition:all .3s;position:relative;overflow:hidden}
 .btn-primary::after{content:'';position:absolute;inset:0;background:#fff;opacity:0;transition:opacity .3s}
 .btn-primary:hover::after{opacity:.15}
-.btn-secondary{background:none;color:var(--text);border:1px solid var(--border);padding:16px 40px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:400;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;transition:all .3s}
+.btn-secondary{background:none;color:var(--text);border:1px solid var(--border);padding:16px 40px;font-family:'DM Sans',sans-serif;font-size:14px;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;border-radius:2px;text-decoration:none;display:inline-block;transition:all .3s}
 .btn-secondary:hover{border-color:var(--text)}
 .hero-scroll{position:absolute;right:60px;bottom:80px;display:flex;flex-direction:column;align-items:center;gap:12px;opacity:0;animation:fadeUp .8s 1.2s forwards}
 .hero-scroll span{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);writing-mode:vertical-rl}
 .scroll-line{width:1px;height:60px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s ease-in-out infinite}
 .hero-stats{display:flex;gap:60px;margin-top:60px;padding-top:40px;border-top:1px solid var(--border);opacity:0;animation:fadeUp .8s 1s forwards}
-.stat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--accent);letter-spacing:.02em;line-height:1}
+.stat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--accent);line-height:1}
 .stat-label{font-size:12px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-top:4px}
 section{padding:120px 60px;position:relative}
 .section-label{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--accent);margin-bottom:20px;font-weight:500;display:flex;align-items:center;gap:12px}
 .section-label::before{content:'';width:30px;height:1px;background:var(--accent)}
-.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:.95;letter-spacing:-.01em;margin-bottom:24px}
+.section-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,6vw,88px);line-height:.95;margin-bottom:24px}
 .section-title em{font-family:'DM Serif Display',serif;font-style:italic;color:var(--muted)}
 .services{background:var(--surface)}
 .services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);margin-top:60px;border:1px solid var(--border)}
-.service-card{background:var(--surface);padding:48px 40px;position:relative;overflow:hidden;transition:background .4s;cursor:default}
+.service-card{background:var(--surface);padding:48px 40px;position:relative;overflow:hidden;transition:background .4s}
 .service-card::before{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width .4s cubic-bezier(.16,1,.3,1)}
 .service-card:hover{background:var(--surface2)}
 .service-card:hover::before{width:100%}
 .service-icon{font-size:32px;margin-bottom:24px;display:block}
 .service-num{position:absolute;top:24px;right:32px;font-family:'Bebas Neue',sans-serif;font-size:64px;color:rgba(255,255,255,.03);line-height:1;user-select:none}
-.service-title{font-family:'DM Sans',sans-serif;font-size:20px;font-weight:500;margin-bottom:16px;color:var(--text);letter-spacing:-.01em}
+.service-title{font-size:20px;font-weight:500;margin-bottom:16px;color:var(--text)}
 .service-desc{font-size:14px;color:var(--muted);line-height:1.8}
 .service-arrow{display:inline-block;margin-top:28px;font-size:12px;color:var(--accent);letter-spacing:.15em;text-transform:uppercase;opacity:0;transform:translateX(-10px);transition:all .3s}
 .service-card:hover .service-arrow{opacity:1;transform:translateX(0)}
@@ -125,25 +104,25 @@ section{padding:120px 60px;position:relative}
 .about-text{font-size:16px;color:var(--muted);line-height:1.9;margin-bottom:16px}
 .about-highlight{font-size:22px;font-family:'DM Serif Display',serif;font-style:italic;color:var(--text);line-height:1.5;margin:32px 0;padding-left:24px;border-left:2px solid var(--accent)}
 .process{background:var(--surface)}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:60px;position:relative}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:60px;position:relative}
 .process-steps::before{content:'';position:absolute;top:32px;left:10%;width:80%;height:1px;background:linear-gradient(90deg,transparent,var(--border),var(--border),transparent)}
-.process-step{padding:40px 32px 32px;position:relative}
+.process-step{padding:40px 32px 32px}
 .step-num{width:64px;height:64px;border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--accent);background:var(--surface);margin-bottom:28px;position:relative;z-index:1;transition:all .3s}
 .process-step:hover .step-num{background:var(--accent);color:#000;border-color:var(--accent)}
-.step-title{font-size:17px;font-weight:500;margin-bottom:12px;letter-spacing:-.01em}
+.step-title{font-size:17px;font-weight:500;margin-bottom:12px}
 .step-desc{font-size:13px;color:var(--muted);line-height:1.8}
 .portfolio-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:60px}
-.portfolio-grid{display:grid;grid-template-columns:2fr 1fr;grid-template-rows:auto auto;gap:1px;background:var(--border)}
+.portfolio-grid{display:grid;grid-template-columns:2fr 1fr;gap:1px;background:var(--border)}
 .portfolio-item{background:var(--surface);padding:60px 48px;position:relative;overflow:hidden;min-height:280px;display:flex;flex-direction:column;justify-content:flex-end;transition:all .4s}
 .portfolio-item:hover{background:var(--surface2)}
 .portfolio-item:nth-child(1){grid-row:1/3;min-height:520px}
 .portfolio-tag{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;font-weight:500}
-.portfolio-title{font-family:'Bebas Neue',sans-serif;font-size:36px;letter-spacing:.02em;line-height:1;margin-bottom:12px}
+.portfolio-title{font-family:'Bebas Neue',sans-serif;font-size:36px;line-height:1;margin-bottom:12px}
 .portfolio-desc{font-size:13px;color:var(--muted);line-height:1.7}
 .portfolio-num{position:absolute;top:32px;right:40px;font-family:'Bebas Neue',sans-serif;font-size:80px;color:rgba(255,255,255,.03);line-height:1;user-select:none}
 .testimonials{background:var(--surface)}
 .testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:60px}
-.testimonial-card{background:var(--bg);border:1px solid var(--border);padding:40px 36px;position:relative;transition:border-color .3s}
+.testimonial-card{background:var(--bg);border:1px solid var(--border);padding:40px 36px;transition:border-color .3s}
 .testimonial-card:hover{border-color:rgba(232,255,71,.3)}
 .testimonial-quote{font-family:'DM Serif Display',serif;font-style:italic;font-size:48px;color:var(--accent);line-height:1;margin-bottom:20px;opacity:.4}
 .testimonial-text{font-size:15px;color:var(--text);line-height:1.8;margin-bottom:28px;font-style:italic;font-family:'DM Serif Display',serif}
@@ -156,7 +135,7 @@ section{padding:120px 60px;position:relative}
 .contact-detail{display:flex;gap:20px;padding:28px 0;border-bottom:1px solid var(--border);align-items:flex-start}
 .contact-detail-icon{width:40px;height:40px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
 .contact-detail-label{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
-.contact-detail-value{font-size:16px;color:var(--text);font-weight:400}
+.contact-detail-value{font-size:16px;color:var(--text)}
 .form-group{margin-bottom:24px}
 .form-label{display:block;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
 .form-input,.form-textarea{width:100%;background:var(--surface);border:1px solid var(--border);color:var(--text);padding:16px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:300;border-radius:2px;outline:none;transition:border-color .3s}
@@ -175,31 +154,23 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
 @keyframes scrollPulse{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.6);opacity:.4}}
 .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
 .reveal.visible{opacity:1;transform:translateY(0)}
-.reveal-delay-1{transition-delay:.1s}
-.reveal-delay-2{transition-delay:.2s}
-.reveal-delay-3{transition-delay:.3s}
-.reveal-delay-4{transition-delay:.4s}
-.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--accent);color:#000;padding:14px 28px;border-radius:2px;font-size:13px;font-weight:500;letter-spacing:.05em;z-index:9999;transition:transform .4s cubic-bezier(.16,1,.3,1);white-space:nowrap}
+.reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+.toast{position:fixed;bottom:32px;left:50%;transform:translateX(-50%) translateY(80px);background:var(--accent);color:#000;padding:14px 28px;border-radius:2px;font-size:13px;font-weight:500;z-index:9999;transition:transform .4s cubic-bezier(.16,1,.3,1);white-space:nowrap}
 .toast.show{transform:translateX(-50%) translateY(0)}
 @media(max-width:1024px){nav,.hero,section,footer{padding-left:32px;padding-right:32px}.services-grid,.process-steps,.testimonials-grid{grid-template-columns:1fr 1fr}.about-inner,.contact-inner{grid-template-columns:1fr}.portfolio-grid{grid-template-columns:1fr}.portfolio-item:nth-child(1){grid-row:auto;min-height:280px}}
 @media(max-width:640px){.nav-links{display:none}.services-grid,.process-steps,.testimonials-grid{grid-template-columns:1fr}.hero-stats{flex-wrap:wrap;gap:32px}footer{flex-direction:column;gap:20px;text-align:center}}
 </style>
 </head>
 <body>
-
 <div class="cursor" id="cursor"></div>
 <div class="cursor-ring" id="cursorRing"></div>
 <div class="toast" id="toast">✓ Хадгалагдлаа</div>
-
-<!-- EDIT BAR -->
 <div class="edit-bar" id="editBar">
   <span>✏️ Засварлах горим — текст дээр дарж засна уу</span>
   <button onclick="saveContent()">💾 Хадгалах</button>
   <button onclick="resetContent()">↺ Анхны байдал</button>
   <button onclick="toggleEdit()">✕ Болих</button>
 </div>
-
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo"><span data-editable contenteditable="false">APEX</span> MARKETING</a>
   <ul class="nav-links">
@@ -216,12 +187,8 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
     <button class="edit-toggle-btn" id="editToggle" onclick="toggleEdit()">✏ Засах</button>
   </div>
 </nav>
-
-<!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-bg"></div>
-  <div class="hero-grid"></div>
-  <div class="hero-number">01</div>
+  <div class="hero-bg"></div><div class="hero-grid"></div><div class="hero-number">01</div>
   <div class="hero-label" data-editable contenteditable="false" data-lang-mn="Монголын тэргүүлэх маркетингийн агентлаг" data-lang-en="Mongolia's Leading Marketing Agency">Монголын тэргүүлэх маркетингийн агентлаг</div>
   <h1 class="hero-title">
     <span data-editable contenteditable="false" data-lang-mn="Таны брэндийг" data-lang-en="We Elevate">Таны брэндийг</span><br>
@@ -240,8 +207,6 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
   </div>
   <div class="hero-scroll"><div class="scroll-line"></div><span data-lang-mn="Доош" data-lang-en="Scroll">Доош</span></div>
 </section>
-
-<!-- SERVICES -->
 <section class="services" id="services">
   <div class="section-label reveal" data-lang-mn="Үйлчилгээ" data-lang-en="Services">Үйлчилгээ</div>
   <h2 class="section-title reveal"><span data-editable contenteditable="false" data-lang-mn="Бид юу" data-lang-en="What We">Бид юу</span><br><em data-editable contenteditable="false" data-lang-mn="хийдэг вэ" data-lang-en="Offer">хийдэг вэ</em></h2>
@@ -254,8 +219,6 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
     <div class="service-card"><span class="service-icon">📈</span><span class="service-num">06</span><div class="service-title" data-editable contenteditable="false" data-lang-mn="Аналитик & Тайлан" data-lang-en="Analytics & Reporting">Аналитик & Тайлан</div><div class="service-desc" data-editable contenteditable="false" data-lang-mn="Мэдээллээр удирдагдсан шийдвэр — кампанийн үр дүнг бодит цагт хянана." data-lang-en="Data-driven decisions — monitor campaign performance in real-time.">Мэдээллээр удирдагдсан шийдвэр — кампанийн үр дүнг бодит цагт хянана.</div><span class="service-arrow">→ Дэлгэрэнгүй</span></div>
   </div>
 </section>
-
-<!-- ABOUT -->
 <section class="about" id="about">
   <div class="about-inner">
     <div class="about-visual">
@@ -273,33 +236,27 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
     </div>
   </div>
 </section>
-
-<!-- PROCESS -->
 <section class="process" id="process">
   <div class="section-label reveal" data-lang-mn="Ажлын үйл явц" data-lang-en="Our Process">Ажлын үйл явц</div>
   <h2 class="section-title reveal"><span data-lang-mn="Хэрхэн" data-lang-en="How We">Хэрхэн</span> <em data-lang-mn="ажилладаг вэ" data-lang-en="Work">ажилладаг вэ</em></h2>
   <div class="process-steps">
     <div class="process-step reveal reveal-delay-1"><div class="step-num">01</div><div class="step-title" data-editable contenteditable="false" data-lang-mn="Судалгаа & Дүн шинжилгээ" data-lang-en="Research & Analysis">Судалгаа & Дүн шинжилгээ</div><div class="step-desc" data-editable contenteditable="false" data-lang-mn="Зах зээл, өрсөлдөгч, зорилтот үзэгчдийг гүнзгий судалж, бодит дүр зургийг тодорхойлно." data-lang-en="We deeply research the market, competitors, and target audience.">Зах зээл, өрсөлдөгч, зорилтот үзэгчдийг гүнзгий судалж, бодит дүр зургийг тодорхойлно.</div></div>
     <div class="process-step reveal reveal-delay-2"><div class="step-num">02</div><div class="step-title" data-editable contenteditable="false" data-lang-mn="Стратеги боловсруулах" data-lang-en="Strategy Development">Стратеги боловсруулах</div><div class="step-desc" data-editable contenteditable="false" data-lang-mn="Судалгаанд үндэслэн таны зорилгод нийцсэн нарийвчилсан маркетингийн стратеги зохионо." data-lang-en="Based on research, we craft a detailed marketing strategy aligned with your goals.">Судалгаанд үндэслэн таны зорилгод нийцсэн нарийвчилсан маркетингийн стратеги зохионо.</div></div>
-    <div class="process-step reveal reveal-delay-3"><div class="step-num">03</div><div class="step-title" data-editable contenteditable="false" data-lang-mn="Хэрэгжүүлэлт" data-lang-en="Execution">Хэрэгжүүлэлт</div><div class="step-desc" data-editable contenteditable="false" data-lang-mn="Стратегийг хэрэгжүүлж, контент үүсгэж, кампанийг эхлүүлнэ — хянамгайлан." data-lang-en="We execute the strategy, create content, and launch campaigns — meticulously.">Стратегийг хэрэгжүүлж, контент үүсгэж, кампанийг эхлүүлнэ — хянамгайлан.</div></div>
+    <div class="process-step reveal reveal-delay-3"><div class="step-num">03</div><div class="step-title" data-editable contenteditable="false" data-lang-mn="Хэрэгжүүлэлт" data-lang-en="Execution">Хэрэгжүүлэлт</div><div class="step-desc" data-editable contenteditable="false" data-lang-mn="Стратегийг хэрэгжүүлж, контент үүсгэж, кампанийг эхлүүлнэ — хянамгайлан." data-lang-en="We execute the strategy, create content, and launch campaigns meticulously.">Стратегийг хэрэгжүүлж, контент үүсгэж, кампанийг эхлүүлнэ — хянамгайлан.</div></div>
     <div class="process-step reveal reveal-delay-4"><div class="step-num">04</div><div class="step-title" data-editable contenteditable="false" data-lang-mn="Хэмжилт & Оновчлол" data-lang-en="Measure & Optimize">Хэмжилт & Оновчлол</div><div class="step-desc" data-editable contenteditable="false" data-lang-mn="Үр дүнг хэмжиж, өгөгдлөөр удирдагдан тасралтгүй сайжруулж, ROI-г нэмэгдүүлнэ." data-lang-en="We measure results, continuously improve based on data, and maximize ROI.">Үр дүнг хэмжиж, өгөгдлөөр удирдагдан тасралтгүй сайжруулж, ROI-г нэмэгдүүлнэ.</div></div>
   </div>
 </section>
-
-<!-- PORTFOLIO -->
 <section id="portfolio">
   <div class="portfolio-header">
     <div><div class="section-label reveal" data-lang-mn="Манай ажлууд" data-lang-en="Our Work">Манай ажлууд</div><h2 class="section-title reveal"><span data-lang-mn="Сүүлийн" data-lang-en="Selected">Сүүлийн</span><br><em data-lang-mn="кейсүүд" data-lang-en="Cases">кейсүүд</em></h2></div>
     <a href="#" class="btn-secondary reveal" data-lang-mn="Бүгдийг харах →" data-lang-en="View All →">Бүгдийг харах →</a>
   </div>
   <div class="portfolio-grid reveal">
-    <div class="portfolio-item"><span class="portfolio-num">01</span><div class="portfolio-tag" data-editable contenteditable="false" data-lang-mn="Брэнд стратеги / Дижитал" data-lang-en="Brand Strategy / Digital">Брэнд стратеги / Дижитал</div><div class="portfolio-title" data-editable contenteditable="false">NOMADIC FOODS</div><div class="portfolio-desc" data-editable contenteditable="false" data-lang-mn="Монголын хүнсний брэндийг олон улсын зах зээлд гаргах бүрэн стратеги кампани. 340% борлуулалт өслөө." data-lang-en="Full strategic campaign launching a Mongolian food brand internationally. 340% sales growth.">Монголын хүнсний брэндийг олон улсын зах зээлд гаргах бүрэн стратеги кампани. 340% борлуулалт өслөө.</div></div>
+    <div class="portfolio-item"><span class="portfolio-num">01</span><div class="portfolio-tag" data-editable contenteditable="false" data-lang-mn="Брэнд стратеги / Дижитал" data-lang-en="Brand Strategy / Digital">Брэнд стратеги / Дижитал</div><div class="portfolio-title" data-editable contenteditable="false">NOMADIC FOODS</div><div class="portfolio-desc" data-editable contenteditable="false" data-lang-mn="Монголын хүнсний брэндийг олон улсын зах зээлд гаргах бүрэн стратеги кампани. 340% борлуулалт өслөө." data-lang-en="Full strategic campaign to launch a Mongolian food brand internationally. 340% sales growth.">Монголын хүнсний брэндийг олон улсын зах зээлд гаргах бүрэн стратеги кампани. 340% борлуулалт өслөө.</div></div>
     <div class="portfolio-item"><span class="portfolio-num">02</span><div class="portfolio-tag" data-editable contenteditable="false" data-lang-mn="Нийгмийн сүлжээ" data-lang-en="Social Media">Нийгмийн сүлжээ</div><div class="portfolio-title" data-editable contenteditable="false">UB BANK</div><div class="portfolio-desc" data-editable contenteditable="false" data-lang-mn="6 сарын хугацаанд дагагчид 2.1 сая болтол өслөө." data-lang-en="Followers grew to 2.1 million in just 6 months.">6 сарын хугацаанд дагагчид 2.1 сая болтол өслөө.</div></div>
     <div class="portfolio-item"><span class="portfolio-num">03</span><div class="portfolio-tag" data-editable contenteditable="false" data-lang-mn="Вэб & Контент" data-lang-en="Web & Content">Вэб & Контент</div><div class="portfolio-title" data-editable contenteditable="false">STEPPE FASHION</div><div class="portfolio-desc" data-editable contenteditable="false" data-lang-mn="E-commerce + контент маркетинг. Органик трафик 580% нэмэгдлээ." data-lang-en="E-commerce + content marketing. Organic traffic increased by 580%.">E-commerce + контент маркетинг. Органик трафик 580% нэмэгдлээ.</div></div>
   </div>
 </section>
-
-<!-- TESTIMONIALS -->
 <section class="testimonials" id="testimonials">
   <div class="section-label reveal" data-lang-mn="Сэтгэгдлүүд" data-lang-en="Testimonials">Сэтгэгдлүүд</div>
   <h2 class="section-title reveal"><span data-lang-mn="Үйлчлүүлэгчид" data-lang-en="What Clients">Үйлчлүүлэгчид</span><br><em data-lang-mn="юу хэлдэг вэ" data-lang-en="Say">юу хэлдэг вэ</em></h2>
@@ -309,8 +266,6 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
     <div class="testimonial-card reveal reveal-delay-3"><div class="testimonial-quote">"</div><div class="testimonial-text" data-editable contenteditable="false" data-lang-mn="Хамгийн сайн зүйл нь тэд үргэлж хэмжинэ, дүн шинжилгээ хийнэ, тасралтгүй сайжруулна." data-lang-en="The best thing is they always measure, analyze, and continuously improve.">Хамгийн сайн зүйл нь тэд үргэлж хэмжинэ, дүн шинжилгээ хийнэ, тасралтгүй сайжруулна.</div><div class="testimonial-author"><div class="author-avatar">👨‍💼</div><div><div class="author-name" data-editable contenteditable="false">Э. Батбаяр</div><div class="author-role" data-editable contenteditable="false" data-lang-mn="Үүсгэн байгуулагч, Steppe Fashion" data-lang-en="Founder, Steppe Fashion">Үүсгэн байгуулагч, Steppe Fashion</div></div></div></div>
   </div>
 </section>
-
-<!-- CONTACT -->
 <section class="contact" id="contact">
   <div class="contact-inner">
     <div>
@@ -318,7 +273,7 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
       <h2 class="section-title reveal"><span data-lang-mn="Хамтдаа" data-lang-en="Let's Build">Хамтдаа</span><br><em data-lang-mn="ажиллацгаая" data-lang-en="Together">ажиллацгаая</em></h2>
       <p class="about-text reveal" style="margin-bottom:40px" data-editable contenteditable="false" data-lang-mn="Таны бизнесийн өсөлтийн тухай ярилцахад бид бэлэн." data-lang-en="We are ready to talk about your business growth.">Таны бизнесийн өсөлтийн тухай ярилцахад бид бэлэн.</p>
       <div class="contact-detail reveal"><div class="contact-detail-icon">📞</div><div><div class="contact-detail-label" data-lang-mn="Утас" data-lang-en="Phone">Утас</div><div class="contact-detail-value" data-editable contenteditable="false">+976 7711 0055</div></div></div>
-      <div class="contact-detail reveal"><div class="contact-detail-icon">✉️</div><div><div class="contact-detail-label" data-lang-mn="Имэйл" data-lang-en="Email">Имэйл</div><div class="contact-detail-value" data-editable contenteditable="false"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96fef3fafaf9d6f7e6f3eefbf7e4fdf3e2fff8f1b8fbf8">[email&#160;protected]</a></div></div></div>
+      <div class="contact-detail reveal"><div class="contact-detail-icon">✉️</div><div><div class="contact-detail-label" data-lang-mn="Имэйл" data-lang-en="Email">Имэйл</div><div class="contact-detail-value" data-editable contenteditable="false">hello@apexmarketing.mn</div></div></div>
       <div class="contact-detail reveal"><div class="contact-detail-icon">📍</div><div><div class="contact-detail-label" data-lang-mn="Хаяг" data-lang-en="Address">Хаяг</div><div class="contact-detail-value" data-editable contenteditable="false" data-lang-mn="Улаанбаатар хот, Сүхбаатар дүүрэг, Нарны зам 9" data-lang-en="Narny Street 9, Sukhbaatar District, Ulaanbaatar">Улаанбаатар хот, Сүхбаатар дүүрэг, Нарны зам 9</div></div></div>
     </div>
     <div class="reveal">
@@ -330,8 +285,6 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
     </div>
   </div>
 </section>
-
-<!-- FOOTER -->
 <footer>
   <div class="footer-logo"><span data-editable contenteditable="false">APEX</span> MARKETING</div>
   <div class="footer-copy" data-editable contenteditable="false">© 2024 APEX Marketing. Бүх эрх хуулиар хамгаалагдсан.</div>
@@ -341,16 +294,12 @@ footer{border-top:1px solid var(--border);padding:48px 60px;display:flex;align-i
     <a class="social-link" href="#" title="LinkedIn">lk</a>
   </div>
 </footer>
-
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-// CURSOR
+<script>
 const cursor=document.getElementById('cursor'),cursorRing=document.getElementById('cursorRing');
 let mx=0,my=0,rx=0,ry=0;
 document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cursor.style.left=mx+'px';cursor.style.top=my+'px'});
 (function animRing(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;cursorRing.style.left=rx+'px';cursorRing.style.top=ry+'px';requestAnimationFrame(animRing)})();
 document.querySelectorAll('a,button,[data-editable]').forEach(el=>{el.addEventListener('mouseenter',()=>cursor.classList.add('hover'));el.addEventListener('mouseleave',()=>cursor.classList.remove('hover'))});
-
-// LANGUAGE
 let currentLang='mn';
 function setLang(lang){
   currentLang=lang;
@@ -364,8 +313,6 @@ function setLang(lang){
   if(lang==='en'){document.getElementById('formName').placeholder='Your name';document.getElementById('formService').placeholder='Which service are you interested in?';document.getElementById('formMsg').placeholder='Tell us about your business...';}
   else{document.getElementById('formName').placeholder='Таны нэр';document.getElementById('formService').placeholder='Ямар үйлчилгээ сонирхож байна вэ?';document.getElementById('formMsg').placeholder='Таны бизнесийн тухай хэлнэ үү...';}
 }
-
-// EDIT MODE
 let editMode=false;
 function toggleEdit(){
   editMode=!editMode;
@@ -389,20 +336,16 @@ function loadContent(){
   document.querySelectorAll('[data-editable]').forEach((el,i)=>{if(d['el_'+i])el.textContent=d['el_'+i]});
 }
 loadContent();
-
-// TOAST
 function showToast(msg){const t=document.getElementById('toast');t.textContent=msg;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),3000)}
-
-// FORM
 function submitForm(){
   if(!document.getElementById('formName').value){showToast('⚠️ Нэрээ оруулна уу');return}
   showToast('✓ Таны мессеж илгээгдлээ. Удахгүй холбогдох болно!');
   ['formName','formEmail','formService','formMsg'].forEach(id=>document.getElementById(id).value='');
 }
-
-// SCROLL REVEAL
 const observer=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
-
-// SMOOTH NAV
-document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoVi
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+window.addEventListener('scroll',()=>{const el=document.querySelector('.hero-number');if(el)el.style.transform=`translateY(calc(-50% + ${window.scrollY*.3}px))`});
+</script>
+</body>
+</html>
