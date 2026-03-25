@@ -1,0 +1,388 @@
+<!-- ═══════════════════════════════════════════════════════════
+     APEX AI CHATBOT WIDGET
+     index.html-ийн </body> тагийн ӨМНӨ paste хийнэ үү
+     YOUR_API_KEY_HERE → өөрийн Claude API түлхүүрээр солино
+════════════════════════════════════════════════════════════ -->
+
+<!-- Floating товч -->
+<div class="wchat-fab" id="wchatFab" onclick="wchatToggle()">
+  <div class="wchat-fab-inner">
+    <span class="wchat-fab-icon" id="fabIcon">💬</span>
+    <span class="wchat-fab-label">AI Туслах</span>
+  </div>
+  <div class="wchat-badge" id="wchatBadge">1</div>
+</div>
+
+<!-- Chat цонх -->
+<div class="wchat-window" id="wchatWindow">
+
+  <!-- Header -->
+  <div class="wchat-header">
+    <div class="wchat-header-left">
+      <div class="wchat-logo">A</div>
+      <div>
+        <div class="wchat-title">APEX AI Туслах</div>
+        <div class="wchat-online"><span class="wchat-dot"></span>Онлайн — 24/7</div>
+      </div>
+    </div>
+    <div class="wchat-header-right">
+      <a href="chatbot.html" class="wchat-expand" title="Бүтэн хэмжээгээр нээх" target="_blank">⤢</a>
+      <button class="wchat-close" onclick="wchatToggle()">✕</button>
+    </div>
+  </div>
+
+  <!-- Messages -->
+  <div class="wchat-msgs" id="wchatMsgs">
+    <div class="wchat-welcome">
+      <div class="wchat-welcome-emoji">👋</div>
+      <div class="wchat-welcome-text" id="wchatWelcomeText">Сайн байна уу! Ямар асуулт байна вэ?</div>
+    </div>
+    <div class="wchat-quick" id="wchatQuick">
+      <button onclick="wQuick('Ямар үйлчилгээ байдаг вэ?')">📊 Үйлчилгээ</button>
+      <button onclick="wQuick('Үнэ хэд вэ?')">💰 Үнэ</button>
+      <button onclick="wQuick('Холбоо барих мэдээлэл')">📞 Холбоо</button>
+      <button onclick="wQuick('Кейс судалгаа харуулна уу')">🏆 Кейс</button>
+    </div>
+  </div>
+
+  <!-- Lead mini form (collapse/expand) -->
+  <div class="wchat-lead" id="wchatLead">
+    <button class="wchat-lead-toggle" onclick="wchatLeadToggle()">
+      <span>📋 Холбоо барих хүсэлт</span><span id="wchatLeadArrow">▾</span>
+    </button>
+    <div class="wchat-lead-body" id="wchatLeadBody" style="display:none">
+      <input type="text" id="wLeadName" placeholder="Нэр" class="wchat-linput">
+      <input type="text" id="wLeadPhone" placeholder="Утас" class="wchat-linput">
+      <button class="wchat-lbtn" onclick="wSubmitLead()">Илгээх →</button>
+      <div class="wchat-lsuccess" id="wchatLSuccess">✓ Хүлээн авлаа!</div>
+    </div>
+  </div>
+
+  <!-- Input -->
+  <div class="wchat-input">
+    <input type="text" id="wchatInput" placeholder="Асуултаа бичнэ үү..." onkeydown="if(event.key==='Enter')wSend()">
+    <button onclick="wSend()" id="wchatSendBtn">➤</button>
+  </div>
+
+</div>
+
+<style>
+/* ── FAB BUTTON ── */
+.wchat-fab{
+  position:fixed;bottom:32px;right:32px;z-index:800;
+  background:var(--accent,#E8FF47);border-radius:50px;
+  cursor:pointer;box-shadow:0 8px 32px rgba(232,255,71,.35);
+  transition:all .3s cubic-bezier(.16,1,.3,1);
+  border:none;padding:0;
+}
+.wchat-fab:hover{transform:translateY(-4px);box-shadow:0 16px 48px rgba(232,255,71,.45)}
+.wchat-fab-inner{display:flex;align-items:center;gap:10px;padding:14px 22px}
+.wchat-fab-icon{font-size:20px;transition:transform .3s}
+.wchat-fab-label{font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;color:#000;white-space:nowrap}
+.wchat-badge{
+  position:absolute;top:-6px;right:-6px;
+  width:20px;height:20px;background:#FF4747;border-radius:50%;
+  font-size:11px;font-weight:700;color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  border:2px solid var(--bg,#080808);
+  animation:badgePop .4s ease;
+}
+@keyframes badgePop{from{transform:scale(0)}to{transform:scale(1)}}
+.wchat-fab.open .wchat-fab-icon{transform:rotate(90deg)}
+
+/* ── WINDOW ── */
+.wchat-window{
+  position:fixed;bottom:104px;right:32px;width:360px;
+  background:#111111;border:1px solid #222;border-radius:20px;
+  box-shadow:0 32px 80px rgba(0,0,0,.7);z-index:800;
+  display:flex;flex-direction:column;overflow:hidden;
+  transform:scale(.92) translateY(16px);opacity:0;pointer-events:none;
+  transition:all .35s cubic-bezier(.16,1,.3,1);
+  max-height:580px;
+}
+.wchat-window.open{transform:scale(1) translateY(0);opacity:1;pointer-events:all}
+
+/* Header */
+.wchat-header{
+  background:#1a1a1a;border-bottom:1px solid #222;
+  padding:16px 18px;display:flex;align-items:center;justify-content:space-between;
+  flex-shrink:0;
+}
+.wchat-header-left{display:flex;align-items:center;gap:12px}
+.wchat-logo{
+  width:38px;height:38px;background:var(--accent,#E8FF47);border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Bebas Neue',serif;font-size:20px;color:#000;font-weight:bold;
+}
+.wchat-title{font-size:14px;font-weight:500;color:#F0EDE6}
+.wchat-online{font-size:11px;color:#6B6B6B;display:flex;align-items:center;gap:5px;margin-top:2px}
+.wchat-dot{width:6px;height:6px;background:#4ade80;border-radius:50%;animation:wdotP 2s infinite}
+@keyframes wdotP{0%,100%{opacity:1}50%{opacity:.4}}
+.wchat-header-right{display:flex;align-items:center;gap:6px}
+.wchat-expand{
+  background:none;border:1px solid #333;color:#6B6B6B;
+  width:30px;height:30px;border-radius:6px;cursor:pointer;
+  font-size:14px;display:flex;align-items:center;justify-content:center;
+  text-decoration:none;transition:all .2s;
+}
+.wchat-expand:hover{border-color:var(--accent,#E8FF47);color:var(--accent,#E8FF47)}
+.wchat-close{
+  background:none;border:none;color:#6B6B6B;
+  font-size:16px;cursor:pointer;padding:6px;
+  width:30px;height:30px;border-radius:6px;
+  display:flex;align-items:center;justify-content:center;
+  transition:all .2s;
+}
+.wchat-close:hover{background:#222;color:#F0EDE6}
+
+/* Messages */
+.wchat-msgs{
+  flex:1;overflow-y:auto;padding:16px;
+  display:flex;flex-direction:column;gap:10px;
+  scrollbar-width:thin;scrollbar-color:#222 transparent;
+  min-height:180px;max-height:280px;
+}
+.wchat-welcome{text-align:center;padding:16px 8px}
+.wchat-welcome-emoji{font-size:28px;margin-bottom:8px}
+.wchat-welcome-text{font-size:13px;color:#aaa;line-height:1.6}
+
+.wchat-quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.wchat-quick button{
+  background:none;border:1px solid #2a2a2a;color:#888;
+  padding:7px 12px;border-radius:16px;font-size:12px;
+  font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .2s;
+}
+.wchat-quick button:hover{border-color:var(--accent,#E8FF47);color:var(--accent,#E8FF47)}
+
+/* Chat messages */
+.wm-row{display:flex;gap:8px;align-items:flex-end;animation:wmIn .25s ease}
+@keyframes wmIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.wm-row.user{flex-direction:row-reverse}
+.wm-av{
+  width:28px;height:28px;border-radius:8px;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:12px;
+}
+.wm-row.bot .wm-av{background:var(--accent,#E8FF47);font-family:'Bebas Neue',serif;color:#000;font-size:14px;font-weight:bold}
+.wm-row.user .wm-av{background:#1a1a1a;border:1px solid #333}
+.wm-bubble{
+  padding:10px 14px;border-radius:10px;font-size:13px;
+  line-height:1.65;max-width:80%;
+}
+.wm-row.bot .wm-bubble{background:#1a1a1a;border:1px solid #2a2a2a;color:#F0EDE6;border-radius:3px 10px 10px 10px}
+.wm-row.user .wm-bubble{background:var(--accent,#E8FF47);color:#000;border-radius:10px 3px 10px 10px}
+
+/* Typing */
+.wm-typing{display:flex;gap:8px;align-items:flex-end}
+.wm-typing-bubble{
+  background:#1a1a1a;border:1px solid #2a2a2a;
+  border-radius:3px 10px 10px 10px;padding:12px 14px;
+  display:flex;gap:4px;align-items:center;
+}
+.wtd{width:6px;height:6px;background:#444;border-radius:50%;animation:wtdot .7s ease-in-out infinite}
+.wtd:nth-child(2){animation-delay:.12s}
+.wtd:nth-child(3){animation-delay:.24s}
+@keyframes wtdot{0%,60%,100%{transform:translateY(0);background:#444}30%{transform:translateY(-6px);background:var(--accent,#E8FF47)}}
+
+/* Lead form */
+.wchat-lead{border-top:1px solid #1e1e1e;flex-shrink:0}
+.wchat-lead-toggle{
+  width:100%;background:none;border:none;color:#6B6B6B;
+  padding:12px 18px;font-size:12px;font-family:'DM Sans',sans-serif;
+  cursor:pointer;display:flex;justify-content:space-between;align-items:center;
+  transition:color .2s;
+}
+.wchat-lead-toggle:hover{color:var(--accent,#E8FF47)}
+.wchat-lead-body{padding:0 16px 14px;display:flex;flex-direction:column;gap:6px}
+.wchat-linput{
+  background:#1a1a1a;border:1px solid #2a2a2a;color:#F0EDE6;
+  padding:10px 12px;border-radius:6px;font-size:13px;
+  font-family:'DM Sans',sans-serif;outline:none;width:100%;
+  transition:border-color .2s;
+}
+.wchat-linput:focus{border-color:var(--accent,#E8FF47)}
+.wchat-linput::placeholder{color:#555}
+.wchat-lbtn{
+  background:var(--accent,#E8FF47);color:#000;border:none;padding:10px;
+  border-radius:6px;font-size:13px;font-weight:500;font-family:'DM Sans',sans-serif;
+  cursor:pointer;transition:opacity .2s;
+}
+.wchat-lbtn:hover{opacity:.85}
+.wchat-lsuccess{
+  font-size:12px;color:#4ade80;text-align:center;padding:6px;
+  display:none;background:rgba(74,222,128,.08);border-radius:4px;
+}
+
+/* Input */
+.wchat-input{
+  display:flex;gap:8px;padding:12px 16px;
+  border-top:1px solid #1e1e1e;background:#1a1a1a;flex-shrink:0;
+}
+#wchatInput{
+  flex:1;background:#111;border:1px solid #2a2a2a;color:#F0EDE6;
+  padding:10px 14px;border-radius:8px;font-size:13px;
+  font-family:'DM Sans',sans-serif;outline:none;transition:border-color .2s;
+}
+#wchatInput:focus{border-color:var(--accent,#E8FF47)}
+#wchatInput::placeholder{color:#555}
+#wchatSendBtn{
+  width:40px;height:40px;background:var(--accent,#E8FF47);color:#000;
+  border:none;border-radius:8px;font-size:16px;cursor:pointer;
+  flex-shrink:0;transition:opacity .2s;
+}
+#wchatSendBtn:hover{opacity:.85}
+#wchatSendBtn:disabled{opacity:.4;cursor:not-allowed}
+
+@media(max-width:480px){
+  .wchat-window{width:calc(100vw - 24px);right:12px;bottom:88px}
+  .wchat-fab{right:12px;bottom:16px}
+  .wchat-fab-label{display:none}
+  .wchat-fab-inner{padding:14px 16px}
+}
+</style>
+
+<script>
+// ═══════════════════════════════════════════════
+// WIDGET CONFIG — YOUR_API_KEY_HERE СОЛИНО УУ!
+// ═══════════════════════════════════════════════
+const WCHAT_API_KEY = 'YOUR_API_KEY_HERE';
+
+const WCHAT_SYSTEM = `Чи APEX Marketing агентлагийн мэргэжлийн AI туслах.
+Монгол/Англи хэлээр хариулна. Хэрэглэгчийн хэлийг дагана.
+
+APEX Marketing:
+- 2016 оноос, 8+ жил, 150+ төсөл, 40+ баг
+- Үйлчилгээ: Брэнд стратеги, Дижитал маркетинг, Контент, Медиа, Вэб/Апп, Аналитик
+- Утас: +976 7711 0055 | Имэйл: hello@apexmarketing.mn
+- Хаяг: УБ, Сүхбаатар дүүрэг, Нарны зам 9
+
+Дүрмүүд: Товч (2-4 өгүүлбэр), найрсаг, мэргэжлийн.
+Үнийн асуулт: "Үнийн санал авахын тулд: +976 7711 0055" гэж хэл.`;
+
+let wchatOpen = false;
+let wchatMsgs = [];
+let wchatBusy = false;
+let wchatLeadOpen = false;
+
+function wchatToggle() {
+  wchatOpen = !wchatOpen;
+  document.getElementById('wchatWindow').classList.toggle('open', wchatOpen);
+  document.getElementById('wchatFab').classList.toggle('open', wchatOpen);
+  document.getElementById('fabIcon').textContent = wchatOpen ? '✕' : '💬';
+  if (wchatOpen) {
+    document.getElementById('wchatBadge').style.display = 'none';
+    document.getElementById('wchatInput').focus();
+  }
+}
+
+function wchatLeadToggle() {
+  wchatLeadOpen = !wchatLeadOpen;
+  document.getElementById('wchatLeadBody').style.display = wchatLeadOpen ? 'flex' : 'none';
+  document.getElementById('wchatLeadArrow').textContent = wchatLeadOpen ? '▴' : '▾';
+}
+
+function wQuick(text) {
+  document.getElementById('wchatQuick')?.remove();
+  document.getElementById('wchatInput').value = text;
+  wSend();
+}
+
+async function wSend() {
+  if (wchatBusy) return;
+  const input = document.getElementById('wchatInput');
+  const text = input.value.trim();
+  if (!text) return;
+
+  const welcome = document.getElementById('wchatWelcome');
+  if (welcome) welcome.style.display = 'none';
+
+  input.value = '';
+  wAddMsg(text, 'user');
+  wchatMsgs.push({ role: 'user', content: text });
+
+  wchatBusy = true;
+  document.getElementById('wchatSendBtn').disabled = true;
+  wShowTyping();
+
+  try {
+    const res = await fetch('https://api.anthropic.com/v1/messages', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'x-api-key': WCHAT_API_KEY,
+        'anthropic-version': '2023-06-01',
+        'anthropic-dangerous-direct-browser-access': 'true'
+      },
+      body: JSON.stringify({
+        model: 'claude-sonnet-4-20250514',
+        max_tokens: 400,
+        system: WCHAT_SYSTEM,
+        messages: wchatMsgs
+      })
+    });
+
+    wHideTyping();
+    const data = await res.json();
+
+    if (data.content?.[0]?.text) {
+      const reply = data.content[0].text;
+      wchatMsgs.push({ role: 'assistant', content: reply });
+      wAddMsg(reply, 'bot');
+    } else {
+      wAddMsg('Уучлаарай, алдаа гарлаа. Дахин оролдоно уу.', 'bot');
+    }
+  } catch {
+    wHideTyping();
+    wAddMsg('Холболтын алдаа. Дахин оролдоно уу.', 'bot');
+  }
+
+  wchatBusy = false;
+  document.getElementById('wchatSendBtn').disabled = false;
+}
+
+function wAddMsg(text, type) {
+  const c = document.getElementById('wchatMsgs');
+  const d = document.createElement('div');
+  d.className = `wm-row ${type}`;
+  const av = type === 'bot' ? 'A' : '👤';
+  d.innerHTML = `<div class="wm-av">${av}</div><div class="wm-bubble">${text.replace(/\n/g,'<br>')}</div>`;
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+
+function wShowTyping() {
+  const c = document.getElementById('wchatMsgs');
+  const d = document.createElement('div');
+  d.className = 'wm-typing'; d.id = 'wTyping';
+  d.innerHTML = `<div class="wm-av" style="background:var(--accent,#E8FF47);font-family:'Bebas Neue',serif;color:#000;font-size:14px;font-weight:bold;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center">A</div><div class="wm-typing-bubble"><div class="wtd"></div><div class="wtd"></div><div class="wtd"></div></div>`;
+  c.appendChild(d);
+  c.scrollTop = c.scrollHeight;
+}
+
+function wHideTyping() { document.getElementById('wTyping')?.remove(); }
+
+function wSubmitLead() {
+  const name = document.getElementById('wLeadName').value.trim();
+  const phone = document.getElementById('wLeadPhone').value.trim();
+  if (!name || !phone) return;
+
+  const welcome = document.querySelector('.wchat-welcome');
+  if (welcome) welcome.remove();
+  document.getElementById('wchatQuick')?.remove();
+
+  wAddMsg(`Холбогдох хүсэлт:\n👤 ${name} | 📞 ${phone}`, 'user');
+  setTimeout(() => wAddMsg(`Баярлалаа ${name}! Манай менежер ${phone} дугаарт удахгүй холбогдох болно. 🎉`, 'bot'), 600);
+
+  document.getElementById('wLeadName').value = '';
+  document.getElementById('wLeadPhone').value = '';
+  const s = document.getElementById('wchatLSuccess');
+  s.style.display = 'block';
+  setTimeout(() => s.style.display = 'none', 3000);
+}
+
+// 3 секундын дараа badge харуулах
+setTimeout(() => {
+  if (!wchatOpen) {
+    document.getElementById('wchatBadge').style.display = 'flex';
+  }
+}, 3000);
+</script>
